@@ -1,4 +1,4 @@
-name: let_secure
+name: letsecure_app
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -24,13 +24,16 @@ dependencies:
   flutter:
     sdk: flutter
 
+  firebase_core: ^0.7.0
+  firebase_auth: ^0.20.1
+  cloud_firestore: ^0.16.0+1
+  http: ^0.12.0+4
+  provider: ^4.0.0
+  google_fonts: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
-  firebase_auth: ^0.14.0+5
-  cloud_firestore: ^0.12.9+4
-  provider: ^4.3.3
 
 dev_dependencies:
   flutter_test:
@@ -42,18 +45,25 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
   uses-material-design: true
   assets:
     - images/logo.png
-    - images/cyber-security1.png
-    - images/quiz.png
-    - images/quiz2.png
     - images/careerInfo.png
-    - images/careerInfo2.png
+    - images/quiz.png
+    - images/cyberSecurity.png
     - images/cyberbullying.png
+    - images/pornography.png
     - images/cyberattack.png
     - images/grooming.png
-    - images/pornography.png
+    - images/cybersec.png
+    - images/lightbulb.png
+    - images/cyberbully.jpg
+    - images/Poster.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
