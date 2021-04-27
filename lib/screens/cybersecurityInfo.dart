@@ -65,7 +65,7 @@ class _SecurityInfoPageState extends State<SecurityInfoPage> {
                                 ),
                             ),
                             Positioned(
-                              top: 10,
+                              top: 20,
                               child: Text("What is Cybersecurity?", style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -73,8 +73,11 @@ class _SecurityInfoPageState extends State<SecurityInfoPage> {
                               ),
                             ),
                             Positioned(
-                              top: 38,
-                              child: Text("Cybersecurity is a one of the ", style: TextStyle(
+                              top: 48,
+                              child: Text("Cybersecurity is the practice of defending "
+                                  "\ncomputers servers, mobile devices, electronic "
+                                  "\nsystems networks, and data from malicious "
+                                  "\nattacks or being a victim of cybercrime. ", style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -336,7 +339,7 @@ class _SecurityInfoPageState extends State<SecurityInfoPage> {
                       padding: EdgeInsets.only(left: 10.0),
                       child: Row(
                         children: <Widget>[
-                          Image(image: AssetImage('images/grooming.png'),
+                          Image(image: AssetImage('images/organization.png'),
                             width: 70,
                             height: 70,
                           ),
