@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+
+class occupation extends StatefulWidget {
+  @override
+  _occupationState createState() => _occupationState();
+}
+
+class _occupationState extends State<occupation> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
