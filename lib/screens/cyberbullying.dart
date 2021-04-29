@@ -10,6 +10,14 @@ class cyberbullying extends StatefulWidget {
 }
 
 class _cyberbullyingState extends State<cyberbullying> {
+  
+  YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: '0Xo8N9qlJtk',
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: false,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +142,14 @@ class _cyberbullyingState extends State<cyberbullying> {
                 ),
                   textAlign: TextAlign.center,
                 ),
+              ),
+              Positioned(
+                top: 500,
+                  child: YoutubePlayer(
+                    controller: _controller,
+                    showVideoProgressIndicator: true,
+                    progressIndicatorColor: Colors.redAccent,
+                  ),
               ),
             ],
           ),
