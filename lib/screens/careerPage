@@ -1,0 +1,171 @@
+import 'package:flutter/material.dart';
+import 'package:letsecureapp/screens/inspirationalStories.dart';
+import 'package:letsecureapp/screens/scholarship.dart';
+
+import 'careerPath.dart';
+import 'home_screen.dart';
+
+class careerPage extends StatefulWidget {
+  @override
+  _careerPageState createState() => _careerPageState();
+}
+
+class _careerPageState extends State<careerPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue[900],
+      appBar: AppBar(
+        backgroundColor: Colors.grey.withOpacity(0.6),
+        leading: IconButton(icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.white,
+          size: 30,
+        ),
+          onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.routeName),
+        ),
+        title: Text('Cybersecurity Career'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(top: 130.0),
+          child:Column(
+            children: <Widget>[
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute (
+                      builder: (context) => careerPath())
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                  height: 100,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.07),
+                        blurRadius: 4,
+                        spreadRadius: 6,
+                      )
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Image(image: AssetImage('assets/career.png'),
+                          width: 70,
+                          height: 70,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                          child: Text("Career Path",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.0),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, new MaterialPageRoute (
+                      builder: (context) => scholarship())
+                  );
+                },
+                child: Container(
+                  height: 100,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.07),
+                        blurRadius: 4,
+                        spreadRadius: 6,
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Image(image: AssetImage('assets/scholar.png'),
+                          width: 70,
+                          height: 70,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                          child: Text("Scholarship",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.0),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, new MaterialPageRoute (
+                      builder: (context) => inspirationalStories())
+                  );
+                },
+                child: Container(
+                  height: 100,
+                  width: 370,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.07),
+                        blurRadius: 4,
+                        spreadRadius: 6,
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Image(image: AssetImage('assets/stories.png'),
+                          width: 70,
+                          height: 70,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                          child: Text("Inspirational Stories",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+
+    );
+  }
+}
