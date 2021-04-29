@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+
+class certificatePage extends StatefulWidget {
+  @override
+  _certificatePageState createState() => _certificatePageState();
+}
+
+class _certificatePageState extends State<certificatePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
