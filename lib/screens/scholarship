@@ -1,0 +1,245 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'careerPage.dart';
+
+class scholarship extends StatefulWidget {
+  @override
+  _scholarshipState createState() => _scholarshipState();
+}
+
+class _scholarshipState extends State<scholarship> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue[900],
+      appBar: AppBar(
+        backgroundColor: Colors.grey.withOpacity(0.6),
+        leading: IconButton(icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.white,
+          size: 30,
+        ),
+          onPressed: () => Navigator.push(context, new MaterialPageRoute(
+              builder: (context) => careerPage())
+          ),
+        ),
+        title: Text('Scholarship'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            padding: EdgeInsets.only(top:18.0),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 140,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Container(
+                        child: Stack(
+                          children: <Widget>[
+                            Positioned(
+                              top:-5,
+                              right:-10,
+                              child: Image(image: AssetImage("assets/scholar.png"),
+                                width: 80,
+                                height: 80,
+                              ),
+                            ),
+                            Positioned(
+                                top: 10,
+                              child: Text("This is the list of scholarship that you \n"
+                                  "can apply in Malaysia that offer \n"
+                                  "courses such as Computer Science, \n"
+                                  "Information Technology(IT) and\n"
+                                  "Cybersecurity ",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        margin: EdgeInsets.only(left:17,bottom:6, right:6),
+                        width: MediaQuery.of(context).size.width/1.1,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color:Colors.white60.withOpacity(0.4),
+                              spreadRadius: 6,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Container(
+                  child: RaisedButton(
+                    child: Text("Majlis Amanah Rakyat (MARA)",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    padding: EdgeInsets.fromLTRB(40,20,40,20) ,
+                    onPressed: () async{
+                      const url = 'https://www.mara.gov.my/';
+                      if (await canLaunch(url)){
+                        await launch(url);
+                      } else{
+                        throw 'Could not launch url';
+                      }
+                    },
+                    // child: Container(
+                    //   margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                    //   height: 100,
+                    //   width: 370,
+                    //   decoration: BoxDecoration(
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.black.withOpacity(0.07),
+                    //         blurRadius: 4,
+                    //         spreadRadius: 6,
+                    //       )
+                    //     ],
+                    //     color: Colors.white,
+                    //     borderRadius: BorderRadius.circular(16),
+                    //   ),
+                    //   child: Container(
+                    //     padding: EdgeInsets.only(left: 10.0),
+                    //     child: Row(
+                    //         children: <Widget>[
+                    //          Image(image: AssetImage('images/cyberbullying.png'),
+                    //            width: 70,
+                    //            height: 70,
+                    //          ),
+                    //      Container(
+                    //        padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                    //        child: Text("MARA",
+                    //          style: TextStyle(
+                    //           fontSize: 22,
+                    //           fontWeight: FontWeight.bold,
+                    //                 ),
+                    //             ),
+                    //            ) ,
+                    //          ],
+                    //         ),
+                    //        ),
+                    //      ),
+                       ),
+                    ),
+                SizedBox(height: 20),
+                Container(
+                  child: RaisedButton(
+                    child: Text("Jabatan Perkhidmatan Awam (JPA)",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    padding: EdgeInsets.all(20) ,
+                    onPressed: () async{
+                      const url = 'https://www.biasiswaonline.com/2018/03/tawaran-biasiswa-jpa-scholarship-2018.html';
+                      if (await canLaunch(url)){
+                        await launch(url);
+                      } else{
+                        throw 'Could not launch url';
+                      }
+                    },
+                   ),
+                  ),
+                SizedBox(height:20),
+                Container(
+                  child: RaisedButton(
+                    child: Text("Bank Negara",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    padding: EdgeInsets.fromLTRB(120,20,120,20),
+                    onPressed: () async{
+                      const url = 'https://www.biasiswamalaysia.com/biasiswa-bank-negara-malaysia-scholarship-undergraduate/';
+                      if (await canLaunch(url)){
+                        await launch(url);
+                      } else{
+                        throw 'Could not launch url';
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  child: RaisedButton(
+                    child: Text("Petronas",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    padding: EdgeInsets.fromLTRB(140,20,140,20),
+                    onPressed: () async{
+                      const url = 'https://semakanmy.com/biasiswa-petronas/';
+                      if (await canLaunch(url)){
+                        await launch(url);
+                      } else{
+                        throw 'Could not launch url';
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  child: RaisedButton(
+                    child: Text("PTPTN",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    padding: EdgeInsets.fromLTRB(148,20,148,20),
+                    onPressed: () async{
+                      const url = 'https://www.ptptn.gov.my/makluman-pinjaman-side/langkah-pendaftaran-permohonan-pinjaman';
+                      if (await canLaunch(url)){
+                        await launch(url);
+                      } else{
+                        throw 'Could not launch url';
+                      }
+                    },
+                  ),
+                ),
+                ],
+              ),
+           ),
+        ),
+      ),
+    );
+  }
+}
