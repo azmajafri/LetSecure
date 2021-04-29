@@ -1,0 +1,266 @@
+import 'package:flutter/material.dart';
+import 'package:letsecureapp/screens/Ceo.dart';
+import 'package:letsecureapp/screens/DrNuha.dart';
+import 'package:letsecureapp/screens/careerPage.dart';
+
+class inspirationalStories extends StatefulWidget {
+  @override
+  _inspirationalStoriesState createState() => _inspirationalStoriesState();
+}
+
+class _inspirationalStoriesState extends State<inspirationalStories> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue[900],
+      appBar: AppBar(
+        backgroundColor: Colors.grey.withOpacity(0.6),
+        leading: IconButton(icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.white,
+          size: 30,
+        ),
+          onPressed: () => Navigator.push(context, new MaterialPageRoute(
+              builder: (context) => careerPage())
+          ),
+        ),
+        title: Text('Inspirational Stories'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            padding: EdgeInsets.only(top:18),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 110,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Container(
+                        child: Stack(
+                          children: <Widget>[
+                            Positioned(
+                              top:-5,
+                              right:-10,
+                              child: Image(image: AssetImage("assets/stories.png"),
+                                width: 80,
+                                height: 80,
+                              ),
+                            ),
+                            Positioned(
+                              top: 10,
+                              child: Text("This is example of successful\n "
+                                  "stories from person who choose\n"
+                                  "cybersecurity field as \n"
+                                  "their career. ",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        margin: EdgeInsets.only(left:17,bottom:6, right:6),
+                        width: MediaQuery.of(context).size.width/1.1,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white60.withOpacity(0.4),
+                              spreadRadius: 6,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute (
+                        builder: (context) => DrNuha())
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                    height: 100,
+                    width: 370,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.07),
+                          blurRadius: 4,
+                          spreadRadius: 6,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        children: <Widget>[
+                          Image(image: AssetImage('assets/drnuha.png'),
+                            width: 70,
+                            height: 70,
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                            child: Text("Dr Nurul Nuha",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, new MaterialPageRoute (
+                        builder: (context) => Ceo())
+                    );
+                  },
+                  child: Container(
+                    height: 100,
+                    width: 370,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.07),
+                          blurRadius: 4,
+                          spreadRadius: 6,
+                        ),
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        children: <Widget>[
+                          Image(image: AssetImage('assets/drnuha.png'),
+                            width: 70,
+                            height: 70,
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                            child: Text("CEO XXXXX",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute (
+                        builder: (context) => DrNuha())
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                    height: 100,
+                    width: 370,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.07),
+                          blurRadius: 4,
+                          spreadRadius: 6,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        children: <Widget>[
+                          Image(image: AssetImage('assets/drnuha.png'),
+                            width: 70,
+                            height: 70,
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                            child: Text("DIS Student",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute (
+                        builder: (context) => DrNuha())
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                    height: 100,
+                    width: 370,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.07),
+                          blurRadius: 4,
+                          spreadRadius: 6,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        children: <Widget>[
+                          Image(image: AssetImage('assets/drnuha.png'),
+                            width: 70,
+                            height: 70,
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                            child: Text("Alumni KICT",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+
+
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
