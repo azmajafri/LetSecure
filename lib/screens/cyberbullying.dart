@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'cyberbullyingPage.dart';
 import 'cybersecurityInfo.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class cyberbullying extends StatefulWidget {
   static const routeName = '/cyberbullying';
