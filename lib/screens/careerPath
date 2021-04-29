@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'careerPage.dart';
+import 'occupation.dart';
+
+class careerPath extends StatefulWidget {
+  @override
+  _careerPathState createState() => _careerPathState();
+}
+
+class _careerPathState extends State<careerPath> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+          backgroundColor: Colors.blue[900],
+          appBar: AppBar(
+            backgroundColor: Colors.grey.withOpacity(0.6),
+            leading: IconButton(icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30,
+            ),
+              onPressed: () => Navigator.push(context, new MaterialPageRoute(
+                  builder: (context) => careerPage())
+              ),
+            ),
+            title: Text('Cybersecurity Career Path'),
+            centerTitle: true,
+          ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(top: 20),
+                child: Text("Career path in order to pursue in cybersecurity field.",
+                  style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 80),
+                child: Image(image: AssetImage('assets/poster.jpeg'),
+                  width:450,
+                  height: 450,
+                ),
+              ),
+              Positioned(
+                right: 18,
+                top: 570,
+                child: InkWell(
+                  onTap:(){
+                    Navigator.push(context,new MaterialPageRoute(
+                      builder: (context) => occupation())
+                    );
+                  },
+                  child: Text("Next",
+                    style: GoogleFonts.rubik(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
