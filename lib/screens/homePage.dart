@@ -1,3 +1,4 @@
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'cybersecurityInfo.dart';
 
@@ -15,15 +16,61 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.blue[900],
       appBar: AppBar(
         backgroundColor: Colors.blueGrey.withOpacity(0.6),
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-            size: 30,
-          ),
-        ),
         title: Text('LetSecure'),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        child: ListView(
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                    color: Colors.blueAccent
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      width: 65,
+                      height: 65,
+                      child: Image(image: AssetImage('images/logo.png'),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 16),
+                      child: Text(
+                        "LetSecure",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+                onTap: () => Navigator.of(context).pop(),
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text("Profile"),
+                onTap: () => Navigator.of(context).pop(),
+              ),
+              ListTile(
+                leading: Icon(Icons.info),
+                title: Text("About"),
+                onTap: () => Navigator.of(context).pop(),
+              ),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Logout"),
+                onTap: () => Navigator.of(context).pop(),
+              ),
+            ]
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -35,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                 child: InkWell(
                   onTap: () {
                     Navigator.push(context, new MaterialPageRoute (
-                      builder: (context) => SecurityInfoPage())
+                        builder: (context) => SecurityInfoPage())
                     );
                   },
                   child: Column(
