@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'organizationChoices.dart';
 import 'securelytics.dart';
 import 'mcmc.dart';
 import 'mcca.dart';
@@ -7,7 +8,7 @@ import 'cybersecMY.dart';
 import 'nacsa.dart';
 import 'mosti.dart';
 import 'malayCouncil.dart';
-import 'cybersecurityInfo.dart';
+
 
 class CybersecOrg extends StatelessWidget {
   @override
@@ -39,7 +40,7 @@ class _CyberSecOrgPageState extends State<CyberSecOrgPage> {
           size: 30,
         ),
           onPressed: () => Navigator.push(context, new MaterialPageRoute(
-              builder: (context) => SecurityInfoPage())
+              builder: (context) => orgChoices())
           ),
         ),
         title: Text('Cybersecurity Organization'),
