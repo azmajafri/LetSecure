@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cybersecOrg.dart';
+import 'organizationChoices.dart';
 import 'pornographyPage.dart';
 import 'cyberStalker.dart';
 import 'cyberbullyingPage.dart';
@@ -56,20 +56,20 @@ class _SecurityInfoPageState extends State<SecurityInfoPage> {
                       Container(
                         child: Stack(
                           children: <Widget>[
-                             Positioned(
-                               top: -5,
-                               right: -10,
-                                child: Image(image: AssetImage("images/cybersec.png"),
-                                  width: 80,
-                                  height: 80,
-                                ),
+                            Positioned(
+                              top: -5,
+                              right: -10,
+                              child: Image(image: AssetImage("images/cybersec.png"),
+                                width: 80,
+                                height: 80,
+                              ),
                             ),
                             Positioned(
                               top: 20,
                               child: Text("What is Cybersecurity?", style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                                ),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                               ),
                             ),
                             Positioned(
@@ -110,9 +110,9 @@ class _SecurityInfoPageState extends State<SecurityInfoPage> {
                             Positioned(
                               top: 10,
                               child: Text("Cybersecurity Threats", style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                                ),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                               ),
                             ),
                             Positioned(
@@ -318,7 +318,7 @@ class _SecurityInfoPageState extends State<SecurityInfoPage> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context, new MaterialPageRoute (
-                        builder: (context) => CyberSecOrgPage())
+                        builder: (context) => orgChoices())
                     );
                   },
                   child: Container(
