@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'cyberbullyingPage.dart';
-// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class cyberbullying extends StatefulWidget {
   static const routeName = '/cyberbullying';
@@ -19,14 +18,6 @@ class _cyberbullyingState extends State<cyberbullying> {
       mute: false,
     )
   );
-  
-  // YoutubePlayerController _controller = YoutubePlayerController(
-  //   initialVideoId: '0Xo8N9qlJtk',
-  //   flags: YoutubePlayerFlags(
-  //     autoPlay: true,
-  //     mute: false,
-  //   ),
-  // );
 
   @override
   Widget build(BuildContext context) {
