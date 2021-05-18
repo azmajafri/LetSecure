@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'cyberbullyingPage.dart';
-import 'cybersecurityInfo.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'cyberbullyingPage.dart';
+// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class cyberbullying extends StatefulWidget {
   static const routeName = '/cyberbullying';
@@ -11,14 +12,21 @@ class cyberbullying extends StatefulWidget {
 }
 
 class _cyberbullyingState extends State<cyberbullying> {
-  
   YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: '0Xo8N9qlJtk',
+    initialVideoId: "4_CBq_Kxtgw",
     flags: YoutubePlayerFlags(
-      autoPlay: true,
+      autoPlay: false,
       mute: false,
-    ),
+    )
   );
+  
+  // YoutubePlayerController _controller = YoutubePlayerController(
+  //   initialVideoId: '0Xo8N9qlJtk',
+  //   flags: YoutubePlayerFlags(
+  //     autoPlay: true,
+  //     mute: false,
+  //   ),
+  // );
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +143,7 @@ class _cyberbullyingState extends State<cyberbullying> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 430),
+                padding: EdgeInsets.only(top: 430, bottom: 290 ),
                 child: Text("Video related to Online Cyberbullying.", style: GoogleFonts.inconsolata(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -144,12 +152,13 @@ class _cyberbullyingState extends State<cyberbullying> {
                   textAlign: TextAlign.center,
                 ),
               ),
+
               Positioned(
                 top: 500,
                   child: YoutubePlayer(
                     controller: _controller,
                     showVideoProgressIndicator: true,
-                    progressIndicatorColor: Colors.redAccent,
+                    progressIndicatorColor: Colors.blueAccent,
                   ),
               ),
             ],
