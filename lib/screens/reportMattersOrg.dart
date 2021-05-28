@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:letsecure_application/screens/amongUS.dart';
 import 'package:letsecure_application/screens/cyberSAFE.dart';
-import 'package:letsecure_application/screens/mcmc.dart';
-import 'package:letsecure_application/screens/organizationChoices.dart';
+import 'package:letsecure_application/screens/mcmcReport.dart';
+import 'organizationChoices.dart';
 
 import 'malayCouncil.dart';
 
@@ -98,7 +98,7 @@ class _reportMattersState extends State<reportMatters> {
                 InkWell(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute (
-                        builder: (context) => mcmc())
+                        builder: (context) => mcmcReport())
                     );
                   },
                   child: Container(
