@@ -25,7 +25,7 @@ class _orgChoicesState extends State<orgChoices> {
           size: 30,
         ),
           onPressed: () => Navigator.push(context, new MaterialPageRoute(
-              builder: (context) => SecurityInfo())
+              builder: (context) => SecurityInfoPage())
           ),
         ),
         title: Text('Cybersecurity Organization'),
