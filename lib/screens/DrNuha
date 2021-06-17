@@ -43,7 +43,7 @@ class _DrNuhaState extends State<DrNuha> {
               ),
               Container(
                 padding: EdgeInsets.only(top: 80),
-                child: Image(image: AssetImage('assets/Nuha.png'),
+                child: Image(image: AssetImage('assets/nuha1.png'),
                   width:450,
                   height: 450,
                 ),
