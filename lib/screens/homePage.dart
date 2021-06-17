@@ -1,17 +1,18 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'cybersecurityInfo.dart';
+import 'package:letsecureapp/screens/aboutPage.dart';
+import 'package:letsecureapp/screens/certificate.dart';
+import 'package:letsecureapp/screens/cybersecurityInfo.dart';
+import 'package:letsecureapp/screens/login_screen.dart';
+import 'package:letsecureapp/screens/stageGame.dart';
 
-class HomePage extends StatefulWidget {
+import 'careerPage.dart';
+
+
+
+class HomeScreen extends StatelessWidget {
   static const routeName = '/home';
   @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
-    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.blue[900],
       appBar: AppBar(
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       width: 65,
                       height: 65,
-                      child: Image(image: AssetImage('images/logo.png'),
+                      child: Image(image: AssetImage('assets/logo.png'),
                       ),
                     ),
                     Container(
@@ -55,21 +56,20 @@ class _HomePageState extends State<HomePage> {
                 onTap: () => Navigator.of(context).pop(),
               ),
               ListTile(
-                leading: Icon(Icons.person),
-                title: Text("Profile"),
-                onTap: () => Navigator.of(context).pop(),
-              ),
-              ListTile(
                 leading: Icon(Icons.info),
                 title: Text("About"),
-                onTap: () => Navigator.of(context).pop(),
+                onTap: () => Navigator.push(context, new MaterialPageRoute(
+                    builder: (context) => aboutPage())
+                ),
               ),
               ListTile(
                 leading: Icon(Icons.logout),
                 title: Text("Logout"),
-                onTap: () => Navigator.of(context).pop(),
+                  onTap: () => Navigator.push(context, new MaterialPageRoute(
+                      builder: (context) => LoginScreen())
               ),
-            ]
+              ),
+            ],
         ),
       ),
       body: SingleChildScrollView(
@@ -84,6 +84,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(context, new MaterialPageRoute (
                         builder: (context) => SecurityInfoPage())
                     );
+
                   },
                   child: Column(
                     children: <Widget>[
@@ -104,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Column(
                           children: <Widget>[
-                            Image(image: AssetImage('images/cyberSecurity.png'),
+                            Image(image: AssetImage('assets/cybersecurity.png'),
                               width: 115,
                               height: 115,
                             ),
@@ -125,7 +126,11 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, new MaterialPageRoute (
+                        builder: (context) => careerPage())
+                    );
+                  },
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -146,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: <Widget>[
 
-                            Image(image: AssetImage('images/careerInfo.png'),
+                            Image(image: AssetImage('assets/careerInfo.png'),
                               width: 105,
                               height: 105,
                             ),
@@ -171,11 +176,17 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
+
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, new MaterialPageRoute (
+                        builder: (context) => stageGamePage())
+                    );
+                  },
                   child: Column(
                     children: <Widget>[
                       Container(
+
                         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
                         height: 180,
                         width: 180,
@@ -192,13 +203,60 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Column(
                           children: <Widget>[
-                            Image(image: AssetImage('images/quiz.png'),
+                            Image(image: AssetImage('assets/quiz.png'),
                               width: 105,
                               height: 105,
 
                             ),
                             SizedBox(height: 15.0),
                             Text("Quiz",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ) ,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context, new MaterialPageRoute (
+                        builder: (context) => certificatePage())
+                    );
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+
+                        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
+                        height: 180,
+                        width: 180,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.06),
+                              blurRadius: 3,
+                              spreadRadius: 4,
+                            )
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            Image(image: AssetImage('assets/cert.png'),
+                              width: 105,
+                              height: 105,
+
+                            ),
+                            SizedBox(height: 15.0),
+                            Text("Certificate",
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
