@@ -24,7 +24,19 @@ class stageGamePage extends StatefulWidget {
 
 class _stageGamePageState extends State<stageGamePage> {
 
-  Widget customcard(String langname){
+  List<String> images=[
+    "assets/grooming.png",
+    "assets/cyberattack.png",
+    "assets/cyberStalker.png"
+  ];
+
+  List<String> des =[
+    " This is easy stage",
+    " This is medium stage",
+    " This is hard stage",
+  ];
+
+  Widget customcard(String langname, String image, String des){
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 30.0,
@@ -44,25 +56,53 @@ class _stageGamePageState extends State<stageGamePage> {
           borderRadius: BorderRadius.circular(25.0),
           child: Container(
             child: Column(
-              children:<Widget>[
-                Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 10.0,
-                ),
-                  child:Material(
-                    elevation: 8.0 ,
-                  )
-                ),
-                Center(
-                  child: Text(
-                    langname,
-                    style: TextStyle(
-                      fontSize: 23.0,
-                      color: Colors.black
+                children:<Widget>[
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 3.0,
+                      ),
+                      child:Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: Container(
+                          // changing from 200 to 150 as to look better
+                          height: 90.0,
+                          width: 90.0,
+                          child: ClipOval(
+                            child: Image(
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                image,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ),
+                  Center(
+                    child: Text(
+                      langname,
+                      style: TextStyle(
+                          fontSize: 23.0,
+                          color: Colors.black
+                      ),
                     ),
                   ),
-                )
-              ]
+                  Container(
+                    padding: EdgeInsets.all(5.0),
+                    child: Text(
+                      des,
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                          fontFamily: "Alike"
+                      ),
+                      maxLines: 5,
+                      textAlign: TextAlign.justify,
+                    ),
+
+                  ),
+                ],
             ),
           ),
         ),
@@ -73,24 +113,24 @@ class _stageGamePageState extends State<stageGamePage> {
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.blue[900],
-      appBar: AppBar(
-        backgroundColor: Colors.grey.withOpacity(0.6),
-        leading: IconButton(icon: Icon(
-          Icons.arrow_back_rounded,
-          color: Colors.white,
-          size: 30,
+        backgroundColor: Colors.blue[900],
+        appBar: AppBar(
+          backgroundColor: Colors.grey.withOpacity(0.6),
+          leading: IconButton(icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
+          ),
+            onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.routeName),
+          ),
         ),
-          onPressed: () => Navigator.of(context).pushReplacementNamed(HomeScreen.routeName),
+        body: ListView(
+          children: <Widget>[
+            customcard("Easy", images[0],des[0]),
+            customcard("Medium", images[1],des[1]),
+            customcard("Hard", images[2],des[2]),
+          ],
         ),
-      ),
-      body: ListView(
-        children: <Widget>[
-          customcard("Easy"),
-          customcard("Medium"),
-          customcard("Hard"),
-        ],
-      )
-    );
+       );
   }
 }
