@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:letsecureapp/screens/Ceo.dart';
 import 'package:letsecureapp/screens/DrNuha.dart';
+import 'package:letsecureapp/screens/asrulKICT.dart';
 import 'package:letsecureapp/screens/careerPage.dart';
 
 class inspirationalStories extends StatefulWidget {
@@ -110,94 +110,7 @@ class _inspirationalStoriesState extends State<inspirationalStories> {
                           ),
                           Container(
                             padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
-                            child: Text("Dr Nurul Nuha",
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20.0),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, new MaterialPageRoute (
-                        builder: (context) => Ceo())
-                    );
-                  },
-                  child: Container(
-                    height: 100,
-                    width: 370,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.07),
-                          blurRadius: 4,
-                          spreadRadius: 6,
-                        ),
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Container(
-                      padding: EdgeInsets.only(left: 10.0),
-                      child: Row(
-                        children: <Widget>[
-                          Image(image: AssetImage('assets/drnuha.png'),
-                            width: 70,
-                            height: 70,
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
-                            child: Text("CEO XXXXX",
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute (
-                        builder: (context) => DrNuha())
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                    height: 100,
-                    width: 370,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.07),
-                          blurRadius: 4,
-                          spreadRadius: 6,
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Container(
-                      padding: EdgeInsets.only(left: 10.0),
-                      child: Row(
-                        children: <Widget>[
-                          Image(image: AssetImage('assets/drnuha.png'),
-                            width: 70,
-                            height: 70,
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
-                            child: Text("DIS Student",
+                            child: Text("Lect IIUM Dr Nuha",
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
@@ -253,7 +166,50 @@ class _inspirationalStoriesState extends State<inspirationalStories> {
                     ),
                   ),
                 ),
-
+                SizedBox(height: 20),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute (
+                        builder: (context) => asrulKICT())
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                    height: 100,
+                    width: 370,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.07),
+                          blurRadius: 4,
+                          spreadRadius: 6,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        children: <Widget>[
+                          Image(image: AssetImage('assets/drnuha.png'),
+                            width: 70,
+                            height: 70,
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(30.0, 0, 30.0, 10.0),
+                            child: Text("Security Student",
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
 
 
               ],
@@ -264,3 +220,4 @@ class _inspirationalStoriesState extends State<inspirationalStories> {
     );
   }
 }
+
