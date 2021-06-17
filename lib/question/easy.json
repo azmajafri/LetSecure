@@ -1,0 +1,102 @@
+
+[
+  {
+    "1": "What is cyberbullying?",
+    "2": "What do you do if you see or hear about someone getting cyberbullied",
+    "3": "Which of these is NOT correct way to end cyberbullying?",
+    "4": "Is cyberbullying a big problem all around the world",
+    "5": "What sites can be used for cyberbullying?",
+    "6": "Technology like social media sites can only be used to hurt people",
+    "7": "A person who knows that a bullying situation is wrong \nand does something to stop it is called:",
+    "8": "Why is it important to protect your online identity?",
+    "9": "Which term describes bad people who watch and read your personal \ninformation online for the purpose of harassing or harming you?",
+    "10": "If you are leaving traces of personal information about yourself online, \navailable for anyone to obtain, then you are damaging your:",
+    "11": "Who is responsible for cybersecurity?"
+  },
+  {
+    "1": {
+      "a": "A person who is ignoring people he doesn't like",
+      "b": "Any online behavior that embarrasses or hurts feelings",
+      "c": "A bully who is embarrassing people during gym class",
+      "d": "A school website that allows posting of cruel messages"
+    },
+    "2": {
+      "a": "Be a bystander",
+      "b": "Just watch",
+      "c": "Go to a adult to seek help",
+      "d": "Be the person that is doing it"
+    },
+    "3": {
+      "a": "Block people",
+      "b": "Reach out for help",
+      "c": "Do not do anything",
+      "d": "Protect your accounts"
+    },
+    "4": {
+      "a": "Yes",
+      "b": "No",
+      "c": "Maybe",
+      "d": "Do not know"
+    },
+    "5": {
+      "a": "Snapchat",
+      "b": "Facebook",
+      "c": "Instagram",
+      "d": "All of above"
+    },
+    "6": {
+      "a": "True ",
+      "b": "False",
+      "c": "Maybe",
+      "d": "Do not know"
+    },
+    "7": {
+      "a": "A friend",
+      "b": "A cyberbully",
+      "c": "A bystander",
+      "d": "An upstander"
+    },
+    "8": {
+      "a": "Because everyone does it",
+      "b": "Because being online is a safe environment",
+      "c": "Because you will make more friends",
+      "d": "Someone might steal your personal information"
+    },
+    "9": {
+      "a": "Online teachers",
+      "b": "Online predators",
+      "c": "Digital footprints",
+      "d": "Social networkers"
+    },
+    "10": {
+      "a": "Grades",
+      "b": "Gaming record",
+      "c": "Friendships",
+      "d": "Digital footprint"
+    },
+    "11": {
+      "a": "Developers",
+      "b": "Everyone",
+      "c": "Government",
+      "d": "Technology Information Security Office"
+    }
+  },
+
+
+  {
+    "1": "Any online behavior that embarrasses or hurts feelings",
+    "2": "Go to a adult to seek help",
+    "3": "Do not do anything",
+    "4": "Yes",
+    "5": "All of above",
+    "6": "False",
+    "7": "An upstander",
+    "8": "Someone might steal your personal information",
+    "9": "Online predators",
+    "10": "Digital footprint",
+    "11": "Everyone"
+  }
+
+
+
+]
