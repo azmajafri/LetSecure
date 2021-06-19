@@ -3,6 +3,7 @@ import 'package:letsecure_application/screens/homePage.dart';
 
 
 class aboutPage extends StatefulWidget {
+
   @override
   _aboutPageState createState() => _aboutPageState();
 }
@@ -20,9 +21,12 @@ class _aboutPageState extends State<aboutPage> {
           color: Colors.white,
           size: 30,
         ),
-          onPressed: () => Navigator.push(context, new MaterialPageRoute(
-              builder: (context) => HomePage())
-          ),
+          onPressed: () {
+          Navigator.pushReplacementNamed(context, '/home');
+          }
+          // => Navigator.push(context, new MaterialPageRoute(
+          //     builder: (context) => HomePage()),
+          // ),
         ),
         title: Text('About'),
         centerTitle: true,
@@ -62,6 +66,7 @@ class _aboutPageState extends State<aboutPage> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w400,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -71,3 +76,4 @@ class _aboutPageState extends State<aboutPage> {
     );
   }
 }
+
