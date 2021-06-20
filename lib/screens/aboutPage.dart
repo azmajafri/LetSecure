@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:letsecure_application/screens/homePage.dart';
 
 class aboutPage extends StatefulWidget {
 
@@ -23,9 +22,6 @@ class _aboutPageState extends State<aboutPage> {
           onPressed: () {
           Navigator.pushReplacementNamed(context, '/home');
           }
-          // => Navigator.push(context, new MaterialPageRoute(
-          //     builder: (context) => HomePage()),
-          // ),
         ),
         title: Text('About'),
         centerTitle: true,
@@ -75,4 +71,3 @@ class _aboutPageState extends State<aboutPage> {
     );
   }
 }
-
