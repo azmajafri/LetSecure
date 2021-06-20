@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:letsecure_app/models/authentication.dart';
-import 'package:letsecure_app/screens/homePage.dart';
-import 'package:letsecure_app/screens/registerPage.dart';
-import 'package:provider/provider.dart';
+import 'homePage.dart';
+import 'registerPage.dart';
+
+enum LoginType{
+  email,
+}
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login';
@@ -11,53 +14,50 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPage> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey();
-  Map<String, String> _authData = {
-    'email': '',
-    'password': ''
-  };
 
-  void _showErrorDialog(String msg)
-  {
-    showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: Text('An Error Occured'),
-          content: Text(msg),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Okay'),
-              onPressed: (){
-                Navigator.of(ctx).pop();
-              },
-            )
-          ],
-        )
-    );
-  }
+  bool isLoading = false;
 
-  Future<void> _submit() async
-  {
-    if(!_formKey.currentState.validate())
-    {
-      return;
-    }
-    _formKey.currentState.save();
+//   void _loginUser({
+//   @required LoginType type,
+//     String email,
+//     String password,
+//     BuildContext context,
+// }) async {
+//     try {
+//       String _returnString;
+//
+//       switch (type) {
+//         case LoginType.email:
+//           _returnString = await Auth().loginUserWithEmail(email, password);
+//           break;
+//           default;
+//       }
+//
+//       if (_returnString == "success") {
+//         Navigator.pushAndRemoveUntil
+//           (context,
+//             MaterialPageRoute(
+//                 builder: (context) => OurRoot(),
+//             ),
+//                 (route) => false
+//         );
+//       } else {
+//         Scaffold.of(context).showSnackBar(
+//             Snackbar(
+//               content: Text(_returnString),
+//               duration: Duration(seconds: 2),
+//             ),
+//         );
+//       }
+//     } catch (e) {
+//       print(e);
+//     }
+//   }
 
-    try{
-      await Provider.of<Authentication>(context, listen: false).logIn(
-          _authData['email'],
-          _authData['password']
-      );
-      Navigator.of(context).pushReplacementNamed(HomePage.routeName);
-
-    }catch (error)
-    {
-      var errorMessage='Authentication Failed. Please try again later.';
-      _showErrorDialog(errorMessage);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,44 +78,45 @@ class _LoginPage extends State<LoginPage> {
                 height: size.height * 0.88,
               ),
             ),
-             Padding(
-               padding: const EdgeInsets.fromLTRB(130, 60, 130, 140),
-               child: Image(
-                 image: AssetImage('images/logo.png'),
-                 width: 165,
-                 height: 165,
-               ),
-             ),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: <Widget>[
-                 Padding(padding: const EdgeInsets.only(top: 232.0),
-                     child: Text('LetSecure', style: TextStyle(
-                       fontSize: 30,
-                       color: Colors.white,
-                       fontWeight: FontWeight.bold,
-                     )),
-                 ),
-               ],
-             ),
-             Container(
-               padding: EdgeInsets.fromLTRB(50, 300, 50, 0),
-                child: Form(
-                  key: _formKey,
-                  child: SingleChildScrollView(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(130, 60, 130, 140),
+              child: Image(
+                image: AssetImage('images/logo.png'),
+                width: 165,
+                height: 165,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(padding: const EdgeInsets.only(top: 232.0),
+                  child: Text('LetSecure', style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  )),
+                ),
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(50, 300, 50, 0),
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
                       //email
                       TextFormField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           hintText: 'Email',
                           fillColor: Colors.white,
                           filled: true,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 2.0)
+                              borderSide: BorderSide(color: Colors.white, width: 2.0)
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 3.0)
+                              borderSide: BorderSide(color: Colors.white, width: 3.0)
                           ),
                         ),
                         keyboardType: TextInputType.emailAddress,
@@ -124,68 +125,68 @@ class _LoginPage extends State<LoginPage> {
                             return 'invalid email';
                           }
                           return null;
-                          },
-                          onSaved: (value) {
-                          _authData['email'] = value;
-                          },
+                        },
                       ),
                       SizedBox(height: 8.0),
 
                       //password
                       TextFormField(
+                        controller: _passwordController,
                         decoration: InputDecoration(
-                          hintText: 'Password',
-                          fillColor: Colors.white,
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 2.0)
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 3.0)
-                          )),
-                          obscureText: true,
-                          validator: (value) {
+                            hintText: 'Password',
+                            fillColor: Colors.white,
+                            filled: true,
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white, width: 2.0)
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white, width: 3.0)
+                            )),
+                        obscureText: true,
+                        validator: (value) {
                           if (value.isEmpty || value.length <= 5) {
                             return 'invalid password';
                           }
                           return null;
-                          },
-                          onSaved: (value) {
-                          _authData['password'] = value;
-                          },
-                        ),
-                        SizedBox(height: 108),
-                        RaisedButton(
-                          child: Text('LOG IN'),
-                            onPressed: () {
-                              _submit();
-                              },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            color: Colors.blue,
-                            textColor: Colors.white,
-                          )
-                          ],
-                        ),
+                        },
                       ),
-                    ),
-                  ),
-            Container(
-              margin: EdgeInsets.only(top:470),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 145.0),
-                child: new Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.white,
+                      SizedBox(height: 110),
+                      RaisedButton(
+                        child: Text('LOG IN'),
+                        onPressed: () {
+                          if(_formKey.currentState.validate()) {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            logInToFb();
+                          }
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        color: Colors.blue,
+                        textColor: Colors.white,
+                      )
+                    ],
                   ),
                 ),
               ),
             ),
+            // Container(
+            //   margin: EdgeInsets.only(top:470),
+            //   child: Padding(
+            //     padding: const EdgeInsets.symmetric(horizontal: 145.0),
+            //     child: new Text(
+            //       "Forgot Password?",
+            //       style: TextStyle(
+            //         fontSize: 15.0,
+            //         color: Colors.white,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Container(
-              margin: EdgeInsets.only(top:490),
+              margin: EdgeInsets.only(top:480),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 110.0),
                 child: new Text(
@@ -198,13 +199,10 @@ class _LoginPage extends State<LoginPage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top:512),
+              margin: EdgeInsets.only(top:492),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 175.0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushReplacementNamed(RegisterPage.routeName);
-                  },
+                padding: const EdgeInsets.symmetric(horizontal: 160.0),
+                child: FlatButton(
                   child: new Text(
                     "Sign Up",
                     style: TextStyle(
@@ -212,220 +210,56 @@ class _LoginPage extends State<LoginPage> {
                       color: Colors.white,
                     ),
                   ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (BuildContext context) => RegisterPage())
+                    );
+                  },
+                  // child: new Text(
+                  //   "Sign Up",
+                  //   style: TextStyle(
+                  //     fontSize: 16.0,
+                  //     color: Colors.white,
+                  //   ),
+                  // ),
                 ),
               ),
             ),
           ],
-                ),
-            ),
+        ),
+      ),
     );
   }
+
+  void logInToFb() {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+        email: _emailController.text, password: _passwordController.text)
+        .then((result) {
+      isLoading = false;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage(uid: result.user.uid)),
+      );
+    }).catchError((err) {
+      print(err.message);
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text(err.message),
+              actions: [
+                ElevatedButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    });
+  }
 }
-
-
-
-// class LoginPage extends StatefulWidget {
-//   static const routeName = '/login';
-//   @override
-//   _LoginPage createState() => _LoginPage();
-// }
-//
-// class _LoginPage extends State<LoginPage> {
-//
-//   String _email;
-//   String _password;
-//
-//   Future<void> _createUser() async {
-//     try {
-//       UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword
-//         (email: _email, password: _password);
-//
-//     } on FirebaseAuthException catch (e) {
-//       print ("Error: $e");
-//     } catch (e) {
-//       print("Error: $e");
-//     }
-//   }
-//
-//   // TextEditingController email = TextEditingController();
-//   // TextEditingController password = TextEditingController();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     Size size = MediaQuery.of(context).size;
-//     return Scaffold(
-//       backgroundColor: Colors.blue[900],
-//       body: SingleChildScrollView(
-//         child: Stack(
-//           children: <Widget>[
-//             Center(
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                   color: Colors.grey.withOpacity(0.4),
-//                   borderRadius: BorderRadius.circular(16),
-//                 ),
-//                 margin: EdgeInsets.only(top: 48.0),
-//                 width: size.width * 0.85,
-//                 height: size.height * 0.88,
-//               ),
-//             ),
-//
-//             Padding(
-//               padding: const EdgeInsets.fromLTRB(130, 60, 130, 140),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: <Widget>[
-//                   Container(
-//                     width: 170,
-//                     height: 170,
-//                     child: Image(
-//                       image: AssetImage('images/logo.png'),
-//                     ),
-//                   ),
-//                 ],
-//                 // child: new Image(
-//                 //   image: new AssetImage('images/logo.png'),
-//                 //   width: 170,
-//                 //   height: 170,
-//                 // ),
-//               ),
-//             ),
-//
-//             Container(
-//               margin: EdgeInsets.only(top:240),
-//               child: Padding(
-//                 padding: const EdgeInsets.symmetric(horizontal: 120.0),
-//                 child: Text(
-//                   "Let Secure",
-//                   style: TextStyle(
-//                     fontSize: 35.0,
-//                     color: Colors.white,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//
-//             Padding(
-//               padding: const EdgeInsets.symmetric(horizontal: 70.0),
-//               child: Container(
-//                 margin: EdgeInsets.only(top: 310),
-//                 height: 50,
-//                 width: 300,
-//                 decoration: BoxDecoration(
-//                   color: Colors.white.withOpacity(0.7),
-//                   borderRadius: BorderRadius.circular(14),
-//                 ),
-//                 child: TextField(
-//                   validator: (input) {
-//                     if(input.isEmpty) {
-//                       return 'Provide email';
-//                     }
-//                   },
-//                   decoration: InputDecoration(
-//                       border: InputBorder.none,
-//                       hintText: 'Email',
-//                       contentPadding: EdgeInsets.all(15)
-//                   ),
-//                 ),
-//               ),
-//             ),
-//
-//             Padding(
-//               padding: const EdgeInsets.symmetric(horizontal: 70.0),
-//               child: Container(
-//                 margin: EdgeInsets.only(top: 370),
-//                 height: 50,
-//                 width: 300,
-//                 decoration: BoxDecoration(
-//                   color: Colors.white.withOpacity(0.7),
-//                   borderRadius: BorderRadius.circular(14),
-//                 ),
-//                 child: TextField(
-//                   onChanged: (value) {
-//                     _password = value;
-//                   },
-//                   decoration: InputDecoration(
-//                       border: InputBorder.none,
-//                       hintText: 'Password',
-//                       contentPadding: EdgeInsets.all(15)
-//                   ),
-//                 ),
-//               ),
-//             ),
-//
-//             SizedBox(height: 10),
-//
-//             Container(
-//               margin: EdgeInsets.only(top: 440),
-//               child: Padding(
-//                 padding: const EdgeInsets.symmetric(horizontal: 160.0),
-//                 child: RaisedButton(
-//                   onPressed: () {
-//                     Navigator.of(context).pushReplacementNamed(HomePage.routeName);
-//                   },
-//                   child: Text('LOG IN'),
-//                   textColor: Colors.white,
-//                   color: Colors.blue,
-//
-//                 ),
-//               ),
-//             ),
-//             Container(
-//               margin: EdgeInsets.only(top:490),
-//               child: Padding(
-//                 padding: const EdgeInsets.symmetric(horizontal: 145.0),
-//                 child: new Text(
-//                   "Forgot Password?",
-//                   style: TextStyle(
-//                     fontSize: 15.0,
-//                     color: Colors.white,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Container(
-//               margin: EdgeInsets.only(top:550),
-//               child: Padding(
-//                 padding: const EdgeInsets.symmetric(horizontal: 110.0),
-//                 child: new Text(
-//                   "Don't have an account?",
-//                   style: TextStyle(
-//                     fontSize: 18.0,
-//                     color: Colors.white,
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             Container(
-//               margin: EdgeInsets.only(top:575),
-//               child: Padding(
-//                 padding: const EdgeInsets.symmetric(horizontal: 175.0),
-//                 child: InkWell(
-//                   onTap: () {
-//                     Navigator.of(context).pushReplacementNamed(RegisterPage.routeName);
-//                   },
-//                   child: Text(
-//                     "Sign Up",
-//                     style: TextStyle(
-//                       fontSize: 16.0,
-//                       color: Colors.white,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-// // void _Login(String email, String password, BuildContext context) async{
-// //   ProviderState _ProviderState = Provider.of<ProviderState>(context, listen: false);
-// // }
-// }
-
-
 
