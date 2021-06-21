@@ -62,7 +62,7 @@ flutter:
     - images/lightbulb.png
     - images/cyberbully.jpg
     - images/Poster.png
-
+    - question/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
