@@ -62,7 +62,32 @@ flutter:
     - images/lightbulb.png
     - images/cyberbully.jpg
     - images/Poster.png
-    - question/
+    - images/mcmc.jpg
+    - images/nacsa.jpg
+    - images/mosti.jpg
+    - images/cybersecMY.jpg
+    - images/MYNationalSec.jpg
+    - images/mcca.jpg
+    - images/organization.png
+    - images/securelytics.png
+    - images/internetPorno.png
+    - images/cyberStalker.png
+    - images/onlineGrooming.png
+    - images/jobsearch.png
+    - images/report.png
+    - images/cybersafe.jpg
+    - images/amongUS.png
+    - images/career.png
+    - images/success.png
+    - images/cert.png
+    - images/scholar.png
+    - images/stories.png
+    - images/cert1.png
+    - images/drnuha.png
+    - images/good.jpg
+    - images/Poster.png
+    - images/nuha1.png
+    - images/asrul1.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
