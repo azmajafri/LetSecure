@@ -28,10 +28,57 @@ class _careerPageState extends State<careerPage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+       child: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(top: 130.0),
+          padding: EdgeInsets.only(top: 18.0),
           child:Column(
             children: <Widget>[
+              Container(
+                height: 110,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top:-1,
+                            right:-15,
+                            child: Image(image: AssetImage("assets/career.png"),
+                              width: 80,
+                              height: 70,
+                            ),
+                          ),
+                          Positioned(
+                            top: 10,
+                            child: Text("This is section consists of cybersecurity\n"
+                                "career path, the list of scholarship\n"
+                                "and inspirational stories. \n",
+
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      margin: EdgeInsets.only(left:17,bottom:6, right:6),
+                      width: MediaQuery.of(context).size.width/1.1,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white60.withOpacity(0.4),
+                            spreadRadius: 6,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
               InkWell(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute (
@@ -75,7 +122,7 @@ class _careerPageState extends State<careerPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 30.0),
               InkWell(
                 onTap: () {
                   Navigator.push(context, new MaterialPageRoute (
@@ -118,7 +165,7 @@ class _careerPageState extends State<careerPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 30.0),
               InkWell(
                 onTap: () {
                   Navigator.push(context, new MaterialPageRoute (
@@ -165,7 +212,7 @@ class _careerPageState extends State<careerPage> {
           ),
         ),
       ),
-
+      ),
     );
   }
 }
