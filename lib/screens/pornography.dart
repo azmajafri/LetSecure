@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'pornographyPage.dart';
 
 class pornographyDetails extends StatefulWidget {
@@ -8,6 +9,15 @@ class pornographyDetails extends StatefulWidget {
 }
 
 class _pornographyDetailsState extends State<pornographyDetails> {
+
+  YoutubePlayerController _controller = YoutubePlayerController(
+      initialVideoId: "UQZ2Uq6acfc",
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+      )
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +132,7 @@ class _pornographyDetailsState extends State<pornographyDetails> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 430),
+                padding: EdgeInsets.only(top: 430, bottom: 290),
                 child: Text("Video related to Internet Pornography.", style: GoogleFonts.inconsolata(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -130,7 +140,16 @@ class _pornographyDetailsState extends State<pornographyDetails> {
                 ),
                   textAlign: TextAlign.center,
                 ),
-              )
+              ),
+
+              Positioned(
+                top: 500,
+                child: YoutubePlayer(
+                  controller: _controller,
+                  showVideoProgressIndicator: true,
+                  progressIndicatorColor: Colors.blueAccent,
+                ),
+              ),
             ],
           ),
         ),
@@ -138,3 +157,4 @@ class _pornographyDetailsState extends State<pornographyDetails> {
     );
   }
 }
+
