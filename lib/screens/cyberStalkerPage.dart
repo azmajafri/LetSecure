@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:letsecure_app/screens/cyberStalker.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'cyberStalker.dart';
 
 class cyberStalkerPage extends StatefulWidget {
+  static const routeName = '/cyberstalker';
+
   @override
   _cyberStalkerPageState createState() => _cyberStalkerPageState();
 }
 
 class _cyberStalkerPageState extends State<cyberStalkerPage> {
+  YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: "Pvp6lPldz5k",
+    flags: YoutubePlayerFlags(
+      autoPlay: false,
+      mute: false,
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(backgroundColor: Colors.blue[900],
+    return Scaffold(
+      // resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.blue[900],
       appBar: AppBar(
         backgroundColor: Colors.grey.withOpacity(0.6),
         leading: IconButton(icon: Icon(
@@ -32,7 +45,7 @@ class _cyberStalkerPageState extends State<cyberStalkerPage> {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.only(top: 30),
-                child: Text("What to in case you are being cyberstalked", style: GoogleFonts.inconsolata(
+                child: Text("What to in case you are being cyberstalked?", style: GoogleFonts.inconsolata(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -122,13 +135,22 @@ class _cyberStalkerPageState extends State<cyberStalkerPage> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 430),
+                padding: EdgeInsets.only(top: 430, bottom: 290),
                 child: Text("Video related to Online Cyber Stalker.", style: GoogleFonts.inconsolata(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
                   textAlign: TextAlign.center,
+                ),
+              ),
+
+              Positioned(
+                top: 500,
+                child: YoutubePlayer(
+                  controller: _controller,
+                  showVideoProgressIndicator: true,
+                  progressIndicatorColor: Colors.blueAccent,
                 ),
               ),
             ],
