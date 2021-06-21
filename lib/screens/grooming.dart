@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'groomingPage.dart';
 
 class groomingDetails extends StatefulWidget {
@@ -9,6 +10,15 @@ class groomingDetails extends StatefulWidget {
 }
 
 class _groomingDetailsState extends State<groomingDetails> {
+
+  YoutubePlayerController _controller = YoutubePlayerController(
+      initialVideoId: "CPhCJjrLZnE",
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+      )
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,7 +133,7 @@ class _groomingDetailsState extends State<groomingDetails> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 450, left: 65),
+                padding: EdgeInsets.only(top: 450, left: 65, bottom: 290),
                 child: Text("Video related to Online \nGrooming.", style: GoogleFonts.inconsolata(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -131,7 +141,16 @@ class _groomingDetailsState extends State<groomingDetails> {
                 ),
                   textAlign: TextAlign.center,
                 ),
-              )
+              ),
+
+              Positioned(
+                top: 500,
+                child: YoutubePlayer(
+                  controller: _controller,
+                  showVideoProgressIndicator: true,
+                  progressIndicatorColor: Colors.blueAccent,
+                ),
+              ),
             ],
           ),
         ),
