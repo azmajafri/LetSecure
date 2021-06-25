@@ -247,50 +247,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ))));
   }
-
-  void registerToFb() async {
-
-    FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-        email: emailController.text.trim(), password: passwordController.text)
-        .then((result) {
-      dbRef.child(result.user.uid).set({
-        "email": emailController.text,
-        "name": nameController.text
-      }).then((res) {
-        isLoading = false;
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage(uid: result.user.uid)),
-        );
-      });
-    }).catchError((err) {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text("Error"),
-              content: Text(err.message),
-              actions: [
-                TextButton(
-                  child: Text("Ok"),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    nameController.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-  }
 }
 
 
