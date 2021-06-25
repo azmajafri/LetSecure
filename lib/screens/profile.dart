@@ -76,31 +76,6 @@ class _ProfileViewState extends State<ProfileView> {
           ),
         ),
 
-        // FutureBuilder(
-        //     future: _getProfileData(),
-        //     builder: (context, snapshot) {
-        //       if (snapshot.connectionState == ConnectionState.done) {
-        //         _nameController.text = user.displayName;
-        //       }
-        //       return Container(
-        //         child: Column(
-        //           children: <Widget>[
-        //             Padding(
-        //               padding: const EdgeInsets.all(8.0),
-        //               child: Text(
-        //                 "Name: ${authData.displayName}",
-        //                 style: TextStyle(
-        //                   fontSize: 20,
-        //                   color: Colors.white,
-        //                 ),
-        //               ),
-        //             ),
-        //           ],
-        //         ),
-        //       );
-        //     }
-        // ),
-
         SizedBox(height: 10.0),
         RaisedButton(
           color: Colors.blueAccent,
@@ -130,75 +105,77 @@ class _ProfileViewState extends State<ProfileView> {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext bc) {
-        return Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height * .60,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 15.0, top: 15.0),
-            child: Column(
-              children: <Widget>[
-                Row(
+        return SingleChildScrollView(
+            child: Container(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * .60,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15.0, top: 15.0),
+                child: Column(
                   children: <Widget>[
-                    Text("Update Profile"),
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.cancel),
-                      color: Colors.blueAccent,
-                      iconSize: 25,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
+                    Row(
+                      children: <Widget>[
+                        Text("Update Profile"),
+                        Spacer(),
+                        IconButton(
+                          icon: Icon(Icons.cancel),
+                          color: Colors.blueAccent,
+                          iconSize: 25,
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 15.0),
+                            child: TextField(
+                              controller: _nameController,
+                              decoration: InputDecoration(
+                                helperText: "Name",
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RaisedButton(
+                          child: Text('Save'),
+                          color: Colors.blueAccent,
+                          textColor: Colors.white,
+                          onPressed: () async {
+                            user.displayName = _nameController.text;
+                            setState(() {
+                              _nameController.text = user.displayName;
+                            });
+                            final uid =
+                            Provider
+                                .of(context)
+                                .auth
+                                .getCurrentUID();
+                            await Provider
+                                .of(context)
+                                .db
+                                .collection('Users')
+                                .document(uid)
+                                .setData(user.toJson());
+                            Navigator.of(context).pop();
+                          },
+                        )
+                      ],
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 15.0),
-                        child: TextField(
-                          controller: _nameController,
-                          decoration: InputDecoration(
-                            helperText: "Name",
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text('Save'),
-                      color: Colors.blueAccent,
-                      textColor: Colors.white,
-                      onPressed: () async {
-                        user.displayName = _nameController.text;
-                        setState(() {
-                          _nameController.text = user.displayName;
-                        });
-                        final uid =
-                        Provider
-                            .of(context)
-                            .auth
-                            .getCurrentUID();
-                        await Provider
-                            .of(context)
-                            .db
-                            .collection('Users')
-                            .document(uid)
-                            .setData(user.toJson());
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ],
-                ),
-              ],
+              ),
             ),
-          ),
         );
       },
     );
