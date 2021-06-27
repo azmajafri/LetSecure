@@ -93,6 +93,8 @@ flutter:
     - images/Poster.png
     - images/nuha1.png
     - images/asrul1.png
+    
+    -question/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
