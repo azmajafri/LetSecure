@@ -1,0 +1,104 @@
+
+[
+  {
+    "1": "Who is responsible for cybersecurity?",
+    "2": "Who are Hackers?",
+    "3": "What are the three main types of stalkers?",
+    "4": "Which term means sending or receiving nude or sexually explicit photographs or messages via text\nmessaging?",
+    "5": "What is the worst consequence that\ncan happen to someone who is cyberbullying others?",
+    "6": "Jack avoids posting private or inappropriate \ninformation about himself online. He does not talk to\nonline predators, and he refuses to participate in any\ncyberbullying. Jack is being:",
+    "7": "Which of these is a good way to keep your online privacy?",
+    "8": "Which of these is the best way to monitor your \nonline presence and how other people see your information?",
+    "9": "One of the most popular online activities — \nand one that poses the greatest risk to your privacy — is:",
+    "10":"If you are leaving traces of personal information about yourself online, \navailable for anyone to obtain, then you are damaging your:"
+  },
+
+  {
+    "1": {
+      "a": "Developers",
+      "b": "Everyone",
+      "c": "Government",
+      "d": "Technology Information Security Office"
+    },
+
+    "2": {
+      "a": "They are benign computer experts",
+      "b": "Investment Bankers",
+      "c": "They are malicious computer criminals",
+      "d": "Hackers could be benign computer experts and malicious computer criminals"
+    },
+
+    "3": {
+      "a": "Simple obsessional",
+      "b": "Delusional",
+      "c": "Vengeful",
+      "d": "All of above"
+    },
+
+    "4": {
+      "a": "Sexting",
+      "b": "Harassment",
+      "c": "Communication",
+      "d": "Cyberbullying"
+    },
+
+     "5": {
+      "a": "Their friends or associates will ignore them",
+      "b": "They will make friends only with people they don't really like",
+      "c": "Their teacher or boss will yell at them in front of others",
+      "d": "They can be charged with the crime of online harassment"
+    },
+
+    "6": {
+      "a": "Mean",
+      "b": "Aggressive",
+      "c": "Digital",
+      "d": "Responsible"
+    },
+
+    "7": {
+      "a": "Use an avatar or picture of some other object",
+      "b": "Post your cell phone number online",
+      "c": "Make your posts visible to everyone, all the time",
+      "d": "Make your hometown, school, and sports team visible in your profile"
+    },
+
+    "8": {
+      "a": "Google yourself",
+      "b": "Ask everyone you know to tell you what they see",
+      "c": "Make sure you have all your information visible",
+      "d": "Use a password manager"
+    },
+
+    "9": {
+      "a": "Online gaming",
+      "b": "Social networking",
+      "c": "Watching movies",
+      "d": "Checking email messages"
+    },
+
+    "10": {
+      "a": "Grades",
+      "b": "Gaming record",
+      "c": "Friendships",
+      "d": "Digital footprint"
+    }
+  },
+
+
+  {
+    "1": "Everyone",
+    "2": "Hackers could be benign computer experts and malicious computer criminals",
+    "3": "All of above",
+    "4": "Sexting",
+    "5": "They can be charged with the crime of online harassment",
+    "6": "Responsible",
+    "7": "Use an avatar or picture of some other object",
+    "8": "Google yourself",
+    "9": "Social networking",
+    "10": "Digital footprint"
+  }
+
+
+
+]
