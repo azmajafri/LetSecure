@@ -1,0 +1,104 @@
+
+
+[
+  {
+    "1": "While walking toward the gym, Emma noticed a group of girls laughing and making hurtful remarks to the new girl. Emma didn’t want to be known as a tattletale, so she walked \naway without taking any action. Which term best describes Emma?",
+    "2": "A person who knows that a bullying situation is wrong \nand does something to stop it is called:",
+    "3": "What is cyber-bullying?",
+    "4": "Is the following an example of cyberbullying?\nSaying something mean about someone based on their\nrace, gender, ability, religion, or sexual orientation",
+    "5": "Why should you never send emails, texts,\nor IMs when you're angry or upset?",
+    "6": "Kids who are cyberbullied are more likely to:",
+    "7": "Kids who are being cyberbullied are often being bullied in person too.",
+    "8": "Which of these are the reason people doing cyberbully?",
+    "9": "What do you do if you see or hear about someone getting cyberbullied?",
+    "10": "Which of the following circumstances should you treat as suspicious?"
+
+  },
+
+  {
+    "1": {
+      "a": "Friend",
+      "b": "Upstander",
+      "c": "Bystander",
+      "d": "Cyberbully"
+    },
+
+    "2": {
+      "a": "A friend",
+      "b": "A cyberbully",
+      "c": "A bystander",
+      "d": "An upstander"
+    },
+
+    "3": {
+      "a": "Threats",
+      "b": "Embarrassing photographs",
+      "c": "Fake stories to humiliate poeple",
+      "d": "All of the above"
+    },
+
+    "4": {
+      "a": "Yes",
+      "b": "No",
+      "c": "Maybe",
+      "d": "I do not know"
+    },
+
+    "5": {
+      "a": "You may not have the best judgement ",
+      "b": "It isn't easy to tell your emotional state online",
+      "c": "The person do not respect you if you're not calm",
+      "d": "Nobody really cares about how you feel"
+    },
+
+    "6": {
+      "a": "Skip school",
+      "b": "Have health problem",
+      "c": "Get bad grades",
+      "d": "All of the above"
+    },
+
+    "7": {
+      "a": "Yes",
+      "b": "No",
+      "c": "Maybe",
+      "d": "I do not know"
+    },
+
+    "8": {
+      "a": "To make them feel powerful",
+      "b": "To make them feel cool",
+      "c": "To make them feel good",
+      "d": "All of above"
+    },
+
+    "9": {
+      "a": "Be a bystander ",
+      "b": "Just watch",
+      "c": "Go to a adult or teacher and seek help",
+      "d": "Be the person that doing it"
+    },
+
+    "10": {
+      "a": "Flight information when no travel is planned",
+      "b": "Email from unknown sender that requiring action",
+      "c": "Request from Bank to update information",
+      "d": "All of the above"
+    }
+  },
+
+  {
+    "1": "Bystander",
+    "2": "An upstander",
+    "3": "All of the above",
+    "4": "Yes",
+    "5": "You may not have the best judgement",
+    "6": "All of the above",
+    "7": "Yes",
+    "8": "All of above",
+    "9": "Go to a adult or teacher and seek help",
+    "10": "depressed"
+
+  }
+
+]
